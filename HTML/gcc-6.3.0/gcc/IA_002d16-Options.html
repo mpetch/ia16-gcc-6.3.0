@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1988-2016 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>IA-16 Options (Using the GNU Compiler Collection (GCC))</title>
+
+<meta name="description" content="IA-16 Options (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="IA-16 Options (Using the GNU Compiler Collection (GCC))">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Option-Index.html#Option-Index" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Submodel-Options.html#Submodel-Options" rel="up" title="Submodel Options">
+<link href="IA_002d64-Options.html#IA_002d64-Options" rel="next" title="IA-64 Options">
+<link href="HPPA-Options.html#HPPA-Options" rel="prev" title="HPPA Options">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="IA_002d16-Options"></a>
+<div class="header">
+<p>
+Next: <a href="IA_002d64-Options.html#IA_002d64-Options" accesskey="n" rel="next">IA-64 Options</a>, Previous: <a href="HPPA-Options.html#HPPA-Options" accesskey="p" rel="prev">HPPA Options</a>, Up: <a href="Submodel-Options.html#Submodel-Options" accesskey="u" rel="up">Submodel Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="IA_002d16-Options-1"></a>
+<h4 class="subsection">3.18.18 IA-16 Options</h4>
+<a name="index-IA_002d16-Options"></a>
+
+<p>These are the &lsquo;<samp>-m</samp>&rsquo; options defined for the Intel IA-16 architecture.
+</p>
+<dl compact="compact">
+<dt><code>-mtune=<var>cpu-type</var></code></dt>
+<dd><a name="index-mtune-6"></a>
+<p>Tune to <var>cpu-type</var> everything applicable about the generated code, except
+for the ABI and the set of available instructions.  The choices for
+<var>cpu-type</var> are:
+</p><dl compact="compact">
+<dt><em>i8086</em></dt>
+<dd><p>The Intel 8086.
+</p>
+</dd>
+<dt><em>i8088</em></dt>
+<dd><p>The Intel 8088.
+</p>
+</dd>
+<dt><em>i80186</em></dt>
+<dt><em>i186</em></dt>
+<dd><p>The Intel 80186.
+</p>
+</dd>
+<dt><em>i80286</em></dt>
+<dt><em>i286</em></dt>
+<dd><p>The Intel 80286.
+</p>
+</dd>
+<dt><em>v20</em></dt>
+<dd><p>The NEC V20.
+</p>
+</dd>
+<dt><em>v30</em></dt>
+<dd><p>The NEC V30.
+</p>
+</dd>
+<dt><em>any</em></dt>
+<dd><p>Any CPU listed above.  The aim is to generate code which runs reasonably
+well on any CPU listed above.
+</p>
+</dd>
+<dt><em>any_186</em></dt>
+<dd><p>As with <samp>-mtune=any</samp>, but assume a CPU which supports immediate
+operands for push, imul and shift/rotate instructions.
+</p></dd>
+</dl>
+
+</dd>
+<dt><code>-march=<var>cpu-type</var></code></dt>
+<dd><a name="index-march-6"></a>
+<p>Generate instructions for the machine type <var>cpu-type</var>.  The choices
+for <var>cpu-type</var> are the same as for <samp>-mtune</samp>.  Moreover,
+specifying <samp>-march=<var>cpu-type</var></samp> implies
+<samp>-mtune=<var>cpu-type</var></samp>.
+</p>
+</dd>
+<dt><code>-mmsdos</code></dt>
+<dd><a name="index-mmsdos"></a>
+<p>Produce executables for MS-DOS.  This is the default.
+</p>
+</dd>
+<dt><code>-mmsdos-handle-v1</code></dt>
+<dd><a name="index-mmsdos_002dhandle_002dv1"></a>
+<p>Produce executables for MS-DOS, in such a way that the executables will fail
+gracefully under MS-DOS version 1.x, rather than crash the system.  This
+option implies <samp>-mmsdos</samp>.
+</p>
+</dd>
+<dt><code>-melks</code></dt>
+<dd><a name="index-melks"></a>
+</dd>
+<dt><code>-melks-libc</code></dt>
+<dd><a name="index-melks_002dlibc"></a>
+<p>Produce executables for the Embeddable Linux Kernel Subset (ELKS) operating
+system.  In addition, link against ELKS&rsquo;s own C runtime library&mdash;which must
+be built with GCC, and installed&mdash;instead of the Newlib C library.
+</p>
+<p>This option also turns on <samp>-mprotected-mode</samp> and
+<samp>-mcmodel=small</samp>.
+</p>
+</dd>
+<dt><code>-maout-stack=<var>stack-size</var></code></dt>
+<dt><code>-mstack-size=<var>stack-size</var></code></dt>
+<dd><a name="index-maout_002dstack"></a>
+<a name="index-mstack_002dsize"></a>
+<p>When building an ELKS program (<samp>-melks</samp>), set it to request the
+operating system to reserve at least <var>stack-size</var> bytes in the data
+segment for the stack.  This requires support from the linker back-end and
+from the linker script which comes with the C library.
+</p>
+</dd>
+<dt><code>-maout-heap=<var>heap-size</var></code></dt>
+<dd><a name="index-maout_002dheap"></a>
+<p>When building an ELKS program (<samp>-melks</samp>), set it to request the
+operating system to reserve at least <var>heap-size</var> bytes in the data
+segment for the heap.  This requires support from the linker back-end and
+from the linker script which comes with the C library.
+</p>
+</dd>
+<dt><code>-mcmodel=tiny</code></dt>
+<dd><a name="index-mcmodel_003dtiny-1"></a>
+<p>Generate code for the tiny code model, with a single combined data and text
+segment in a 64&nbsp;KiB<!-- /@w --> address space.  This is the default for MS-DOS.
+</p>
+</dd>
+<dt><code>-mcmodel=small</code></dt>
+<dt><code>-mseparate-code-segment</code></dt>
+<dd><a name="index-mcmodel_003dsmall-1"></a>
+<a name="index-mseparate_002dcode_002dsegment"></a>
+<p>Generate code for the small code model, with one data segment and one text
+segment, in separate 64&nbsp;KiB<!-- /@w --> spaces.  This is now (February 2020) the
+default for ELKS (<samp>-melks</samp>).
+</p>
+<p>At the compile stage, <samp>-mcmodel=small</samp> currently disables trampolines
+for nested functions.
+</p>
+<p>At the linking stage&mdash;unless <samp>-T</samp> is used&mdash;this option also causes
+GCC to switch to a different output format to better support separate
+segments.  In particular, if targeting MS-DOS, GCC will produce an <code>MZ</code>
+executable.  (This requires support from the linker script which comes with
+the C library.)
+</p>
+</dd>
+<dt><code>-msegment-relocation-stuff</code></dt>
+<dt><code>-mno-segment-relocation-stuff</code></dt>
+<dd><a name="index-msegment_002drelocation_002dstuff"></a>
+<a name="index-mno_002dsegment_002drelocation_002dstuff"></a>
+<p>Enable (or disable) language features, such as static pointers to far
+variables, that rely on segment relocations to work.  If the small code
+model is used, the default is to allow such language features.
+</p>
+</dd>
+<dt><code>-mshort-jumps</code></dt>
+<dt><code>-mno-short-jumps</code></dt>
+<dd><a name="index-mshort_002djumps"></a>
+<a name="index-mno_002dshort_002djumps"></a>
+<p>Allow (or disallow) the use of jump instructions which can only jump
+-128/+127 bytes.  The default is not to use them.  This option only
+affects instructions for which the assembler doesn&rsquo;t provide a work-around
+and the compiler doesn&rsquo;t know the jump displacement.
+</p>
+</dd>
+<dt><code>-mrtd</code></dt>
+<dt><code>-mstdcall</code></dt>
+<dd><a name="index-mrtd"></a>
+<a name="index-mstdcall"></a>
+<p>Use a different function-calling convention, in which functions that
+take a fixed number of arguments return with the <code>ret <var>num</var></code>
+instruction, which pops their arguments while returning.  This saves one
+instruction in the caller since there is no need to pop the arguments
+there.
+</p>
+<p>At the linking stage, this option will also make GCC link your code against
+the appropriate <samp>-mrtd</samp> multilib.
+</p>
+<p>You can specify that an individual function is called with this calling
+sequence with the function attribute <code>stdcall</code>.  You can also
+override the <samp>-mrtd</samp> option by using the function attribute
+<code>cdecl</code> or <code>regparmcall</code>.  See <a href="IA_002d16-Function-Attributes.html#IA_002d16-Function-Attributes">IA-16 Function Attributes</a>.
+</p>
+<p><strong>Warning:</strong> you must provide function prototypes for all functions that
+take variable numbers of arguments (including <code>printf</code>);
+otherwise incorrect code is generated for calls to those
+functions.
+</p>
+<p>In addition, seriously incorrect code results if you call a
+function with too many arguments.  (Normally, extra arguments are
+harmlessly ignored.)
+</p>
+</dd>
+<dt><code>-mregparmcall</code></dt>
+<dd><a name="index-mregparmcall"></a>
+<p>Use a different function-calling convention, in which functions receive
+their first few arguments in the registers <code>ax</code>, <code>dx</code>, and
+<code>cx</code>, and pop their remaining arguments off the stack.  An exception is
+that, if the number of arguments to a function is variable, the <code>...</code>
+variable arguments will always go on the stack, and the calling function
+pops all pushed arguments.
+</p>
+<p>At the linking stage, <samp>-mregparmcall</samp> will also make GCC link your
+code against the appropriate <samp>-mregparmcall</samp> multilib.
+</p>
+<p>You can specify that an individual function is called with this calling
+sequence with the function attribute <code>regparmcall</code>.  You can also
+override the <samp>-mregparmcall</samp> option by using the function attribute
+<code>cdecl</code> or <code>stdcall</code>.  See <a href="IA_002d16-Function-Attributes.html#IA_002d16-Function-Attributes">IA-16 Function Attributes</a>.
+</p>
+<p><strong>Warning:</strong> you must provide function prototypes for all functions that
+take variable numbers of arguments (including <code>printf</code>);
+otherwise incorrect code is generated for calls to those
+functions.
+</p>
+<p>In addition, seriously incorrect code results if you call a
+function with too many arguments.  (Normally, extra arguments are
+harmlessly ignored.)
+</p>
+</dd>
+<dt><code>-mno-callee-assume-ds-data-segment</code></dt>
+<dt><code>-mcallee-assume-ds-data-segment</code></dt>
+<dd><a name="index-mno_002dcallee_002dassume_002dds_002ddata_002dsegment"></a>
+<a name="index-mcallee_002dassume_002dds_002ddata_002dsegment"></a>
+<p>Use (or do not use) a different function-calling convention, in which the
+<code>ds</code> register is not assumed to point to the program&rsquo;s data segment
+(the generic address space) at function entry, and is treated as just an
+ordinary call-used register (with <samp>-fcall-used-ds</samp>) or fixed
+register (<samp>-ffixed-ds</samp>) with no special meaning.
+</p>
+<p>The <code>ss</code> register is still assumed to point to the data segment&mdash;data
+items in the generic address space will be accessed via <code>ss</code>.
+</p>
+<p>This option is ignored if <code>ds</code> is set to be a call-saved register
+(<samp>-fcall-saved-ds</samp>).
+</p>
+<p>In the default configuration (<samp>-mcallee-assume-ds-data-segment
+-mcallee-assume-ss-data-segment -fcall-used-ds</samp>), functions can assume that
+<code>ds</code> points to the program&rsquo;s data segment at function entry, and will
+arrange to reset <code>ds</code> to <code>ss</code>&mdash;if needed&mdash;just before returning.
+</p>
+<p>You can override this option for individual functions, by using the
+<code>assume_ds_data</code> and <code>no_assume_ds_data</code> function attributes.
+See <a href="IA_002d16-Function-Attributes.html#IA_002d16-Function-Attributes">IA-16 Function Attributes</a>.
+</p>
+</dd>
+<dt><code>-mprotected-mode</code></dt>
+<dd><a name="index-mprotected_002dmode"></a>
+<p>Enable partial support for generating code to run in
+Intel 80286 protected mode.
+</p>
+<p>With this option, the output code will avoid using segment registers
+(<code>ds</code>, <code>es</code>) to hold arbitrary 16-bit values&mdash;in protected mode,
+doing so may make the CPU crash the program.  Instead, the output code will
+only load segment registers when dereferencing near or far pointers.
+</p>
+<p>Currently, <samp>-mprotected-mode</samp> also causes GCC to avoid placing
+<code>asm</code> operands in segment registers.  You can tell GCC to let an
+operand go into a segment register, by passing the operand through a
+built-in function &lsquo;<samp>__builtin_ia16_selector</samp>&rsquo;:
+</p><div class="smallexample">
+<pre class="smallexample">void foo (unsigned selector)
+{
+  __asm volatile (&quot;nop&quot;
+                  : : &quot;e&quot; (__builtin_ia16_selector (selector)));
+}
+</pre></div>
+
+<p>At the linking stage, <samp>-mprotected-mode</samp> will also make GCC link your
+code against library routines that are built to work with protected mode.
+</p></dd>
+</dl>
+
+<a name="Experimental-IA_002d16-Options"></a>
+<h4 class="subsubsection">3.18.18.1 Experimental IA-16 Options</h4>
+
+<dl compact="compact">
+<dt><code>-mcmodel=medium</code></dt>
+<dd><a name="index-mcmodel_003dmedium"></a>
+<p>Generate code for the medium code model, with one data segment and multiple
+text segments, each in a separate 64&nbsp;KiB<!-- /@w --> space.
+</p>
+<p>At the linking stage&mdash;unless <samp>-T</samp> is used&mdash;this option will also
+make GCC link your code against the appropriate medium model multilib, and
+switch to the appropriate output program format.
+</p>
+<p>This option is currently not supported for C++.  Also, medium model support
+for the ELKS target is incomplete.
+</p>
+</dd>
+<dt><code>-mnewlib-nano-stdio</code></dt>
+<dd><a name="index-mnewlib_002dnano_002dstdio"></a>
+<p>If using the Newlib C library, link against a limited version of the
+formatted I/O routines (<code>stdio</code>) which supports only C89 functionality
+and by default excludes floating-point support.
+</p>
+</dd>
+<dt><code>-mnewlib-autofloat-stdio</code></dt>
+<dd><a name="index-mnewlib_002dautofloat_002dstdio"></a>
+<p>If using the Newlib C library, try to detect whether the program needs
+floating-point support in the formatted I/O routines (<code>stdio</code>), and
+link against the appropriate version of the <code>stdio</code> code.
+</p>
+<p>If you use this option, specify it at compile time and during the final link.
+</p>
+</dd>
+<dt><code>-mdpmiable</code></dt>
+<dd><a name="index-mdpmiable"></a>
+<p>Produce MS-DOS executables which try to use the DOS Protected Mode Interface
+(DPMI) to switch to and run in protected mode when they detect a DPMI host. 
+</p>
+<p>This option implies <samp>-mmsdos</samp> and <samp>-mprotected-mode</samp>, and
+requires support from the linker script which comes with the C library.
+</p>
+</dd>
+<dt><code>-msegelf</code></dt>
+<dd><a name="index-msegelf"></a>
+<p>Generate object files which follow H. Peter Anvin&rsquo;s proposed 16-bit
+segmented code ABI,
+<a href="https://git.zytor.com/users/hpa/segelf/abi.git/plain/segelf.txt">https://git.zytor.com/users/hpa/segelf/abi.git/plain/segelf.txt</a>.
+</p>
+<p><strong>Warning:</strong> The <samp>-msegelf</samp> switch causes GCC
+to generate code that is not binary compatible with code generated
+without that switch.  Using this switch may require recompiling all
+other modules in a program, including system libraries.
+</p>
+</dd>
+<dt><code>-mno-callee-assume-ss-data-segment</code></dt>
+<dd><a name="index-mno_002dcallee_002dassume_002dss_002ddata_002dsegment"></a>
+<p>Use a different function-calling convention, in which the <code>ss</code> register
+is not assumed to point to the program&rsquo;s data segment at function entry. 
+This option exists only for testing.
+</p></dd>
+</dl>
+
+<a name="Deprecated-IA_002d16-Options"></a>
+<h4 class="subsubsection">3.18.18.2 Deprecated IA-16 Options</h4>
+
+<dl compact="compact">
+<dt><code>-mno-far-function-if-far-return-type</code></dt>
+<dd><a name="index-mno_002dfar_002dfunction_002dif_002dfar_002dreturn_002dtype"></a>
+<p>Do not treat a function with a <code>__far</code> return type as a far function.
+See <a href="Named-Address-Spaces.html#IA_002d16-Named-Address-Spaces">IA-16 Named Address Spaces</a>.
+</p>
+</dd>
+<dt><code>-maout-total=<var>total</var></code></dt>
+<dd><a name="index-maout_002dtotal"></a>
+<p>When building an ELKS program (<samp>-melks</samp>), set it to request the
+operating system to set the top of the data segment&mdash;including static
+storage, heap, stack, and environment variables&mdash;to at least <var>total</var>. 
+This requires support from the linker back-end and from the linker script
+which comes with the C library.
+</p>
+</dd>
+<dt><code>-maout-chmem=<var>chmem</var></code></dt>
+<dd><a name="index-maout_002dchmem"></a>
+<p>When building an ELKS program (<samp>-melks</samp>), set it to request the
+operating system to reserve at least <var>chmem</var> bytes in the data segment
+for non-static storage (such as heap, stack, and environment variables). 
+This requires support from the linker back-end and from the script which
+comes with the C library.
+</p></dd>
+</dl>
+
+<a name="IA_002d16-Built_002din-Macros"></a><a name="IA_002d16-Built_002din-Macros-1"></a>
+<h4 class="subsubsection">3.18.18.3 IA-16 Built-in Macros</h4>
+
+<dl compact="compact">
+<dt><code>__FAR</code></dt>
+<dt><code>__SEG_SS</code></dt>
+<dd><p>Each of these macros is defined only if the compiler supports the named
+address space specifier (see <a href="Named-Address-Spaces.html#IA_002d16-Named-Address-Spaces">IA-16 Named Address Spaces</a>).
+</p>
+</dd>
+<dt><code>__IA16_CMODEL_TINY__</code></dt>
+<dt><code>__TINY__</code></dt>
+<dt><code>__IA16_CMODEL_SMALL__</code></dt>
+<dt><code>__SMALL__</code></dt>
+<dt><code>__IA16_CMODEL_MEDIUM__</code></dt>
+<dt><code>__MEDIUM__</code></dt>
+<dd><p>Each of these macros is defined only if the named code model (tiny, small,
+or medium) is selected.
+</p>
+</dd>
+<dt><code>__IA16_ARCH_ANY</code></dt>
+<dt><code>__IA16_ARCH_ANY_186</code></dt>
+<dt><code>__IA16_ARCH_I8086</code></dt>
+<dt><code>__IA16_ARCH_I8088</code></dt>
+<dt><code>__IA16_ARCH_NEC_V30</code></dt>
+<dt><code>__IA16_ARCH_NEC_V20</code></dt>
+<dt><code>__IA16_ARCH_I80186</code></dt>
+<dt><code>__IA16_ARCH_I80188</code></dt>
+<dt><code>__IA16_ARCH_I80286</code></dt>
+<dd><p>These macros are defined according to the <samp>-march=<var>cpu-type</var></samp>
+option settings.
+</p>
+</dd>
+<dt><code>__IA16_TUNE_I8086</code></dt>
+<dt><code>__IA16_TUNE_I8088</code></dt>
+<dt><code>__IA16_TUNE_NEC_V30</code></dt>
+<dt><code>__IA16_TUNE_NEC_V20</code></dt>
+<dt><code>__IA16_TUNE_I80186</code></dt>
+<dt><code>__IA16_TUNE_I80188</code></dt>
+<dt><code>__IA16_TUNE_I80286</code></dt>
+<dd><p>These macros are defined according to the <samp>-mtune=<var>cpu-type</var></samp> and
+option settings.
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_SHIFT_IMM</code></dt>
+<dt><code>__IA16_FEATURE_PUSH_IMM</code></dt>
+<dt><code>__IA16_FEATURE_IMUL_IMM</code></dt>
+<dt><code>__IA16_FEATURE_PUSHA</code></dt>
+<dt><code>__IA16_FEATURE_ENTER_LEAVE</code></dt>
+<dt><code>__IA16_FEATURE_AAD_IMM</code></dt>
+<dt><code>__IA16_FEATURE_FSTSW_AX</code></dt>
+<dd><p>Each of these macros is defined only if the CPU selected by
+<samp>-march=<var>cpu-type</var></samp> supports the named type of IA-16 instruction.
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_SHIFT_MASKED</code></dt>
+<dd><p>This macro is defined only if the selected CPU&rsquo;s bitwise shift and rotation
+instructions&mdash;<code>rcl</code>, <code>shr</code>, and so on&mdash;implicitly mask each
+shift count to their lower 5 bits.
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_PROTECTED_MODE</code></dt>
+<dd><p>This macro is defined only if <samp>-mprotected-mode</samp> is in effect.
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_DPMIABLE</code></dt>
+<dd><p>This macro is defined only if <samp>-mdpmiable</samp> is in effect.
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_ALLOCABLE_DS_REG</code></dt>
+<dd><p>This macro is defined only if the <code>ds</code> register is configured to be
+available for register allocation&mdash;that is, it is either call-used or
+call-saved, not fixed.
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_FAR_FUNCTION_SYNTAX</code></dt>
+<dd><p>This macro is defined only if the postfix <code>__far</code> syntax for declaring
+far functions is supported (see <a href="Named-Address-Spaces.html#IA_002d16-Named-Address-Spaces">IA-16 Named Address Spaces</a>).
+</p>
+</dd>
+<dt><code>__IA16_CALLCVT_FAR_FUNCTION_IF_FAR_RETURN_TYPE</code></dt>
+<dd><p>This macro is defined only if the classical syntax for declaring far
+functions is supported (see <a href="Named-Address-Spaces.html#IA_002d16-Named-Address-Spaces">IA-16 Named Address Spaces</a>).
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_FAR_STATIC_STORAGE</code></dt>
+<dd><p>This macro is defined only if static storage variables can be placed in
+<code>__far</code> space (see <a href="Named-Address-Spaces.html#IA_002d16-Named-Address-Spaces">IA-16 Named Address Spaces</a>).
+</p>
+</dd>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_CDECL</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_STDCALL</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_REGPARMCALL</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_ASSUME_DS_DATA</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_NO_ASSUME_DS_DATA</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_RESTORE_DS</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_NO_ASSUME_SS_DATA</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_NEAR_SECTION</code></dt>
+<dt><code>__IA16_FEATURE_ATTRIBUTE_FAR_SECTION</code></dt>
+<dd><p>Each of these macros is defined only if the corresponding function attribute
+is supported (see <a href="IA_002d16-Function-Attributes.html#IA_002d16-Function-Attributes">IA-16 Function Attributes</a>).
+</p>
+</dd>
+<dt><code>__BUILTIN_IA16_SELECTOR</code></dt>
+<dt><code>__BUILTIN_IA16_FP_OFF</code></dt>
+<dt><code>__BUILTIN_IA16_NEAR_DATA_SEGMENT</code></dt>
+<dt><code>__BUILTIN_IA16_SS</code></dt>
+<dd><p>Each of these macros is defined only if the corresponding
+<code>__builtin_ia16_</code>&hellip; macro is defined (see <a href="IA_002d16-Built_002din-Functions.html#IA_002d16-Built_002din-Functions">IA-16 Built-in Functions</a>).
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="IA_002d64-Options.html#IA_002d64-Options" accesskey="n" rel="next">IA-64 Options</a>, Previous: <a href="HPPA-Options.html#HPPA-Options" accesskey="p" rel="prev">HPPA Options</a>, Up: <a href="Submodel-Options.html#Submodel-Options" accesskey="u" rel="up">Submodel Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html#Option-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
